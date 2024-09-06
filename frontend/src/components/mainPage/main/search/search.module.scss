@@ -1,0 +1,13 @@
+.search {
+  &_block {
+    display: flex;
+    align-items: center;
+    background-color: yellow;
+    height: 10vh;
+
+    &-form {
+      display: flex;
+      margin: 16px;
+    }
+  }
+}

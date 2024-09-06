@@ -1,0 +1,24 @@
+@import "../../../assets/scss/scss.constants.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $mainBg;
+  height: 10vh;
+  &_nav {
+    display: flex;
+    margin: 16px;
+    &-ul {
+      &-list {
+        &_link {
+          text-decoration: none;
+          &-title {
+            color: $mainColor;
+            font-size: $fontMainTitleNormal;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

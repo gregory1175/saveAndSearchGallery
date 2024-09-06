@@ -1,0 +1,45 @@
+@import "../../../assets/scss/scss.constants.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: $altBg;
+
+  &_block {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    min-height: 900px;
+    width: 100%;
+
+    &-search {
+      display: flex;
+      width: 100%;
+      background-color: red;
+    }
+  }
+
+  &_ImagesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    &-image {
+      display: flex;
+    }
+  }
+
+  &_welcomeContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

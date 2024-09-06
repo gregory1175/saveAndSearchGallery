@@ -1,0 +1,13 @@
+@import "../../../../assets/scss/scss.constants.scss";
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  min-height: 10vh;
+  color: $mainColor;
+  background: $mainBg25;
+}
