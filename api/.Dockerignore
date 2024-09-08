@@ -1,0 +1,42 @@
+# Игнорируем окружения виртуальных машин
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Игнорируем IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Игнорируем файлы конфигураций и логов
+*.log
+.env
+.env.local
+*.env
+*.env.*
+.env.*
+
+# Игнорируем файлы тестов и документации
+tests/
+docs/
+
+# Игнорируем данные и базы данных
+instance/
+*.sqlite
+*.db
+
+# Игнорируем Docker файлы
+Dockerfile
+docker-compose.yml
+
+# Игнорируем системные файлы
+*.swp
+*.swo
+.DS_Store
+
+# Игнорируем Git файлы
+.git
+.gitignore

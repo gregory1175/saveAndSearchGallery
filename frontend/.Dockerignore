@@ -1,0 +1,25 @@
+# Игнорировать папку node_modules
+node_modules
+
+# Игнорировать файлы и папки для разработки
+npm-debug.log
+yarn-error.log
+
+# Игнорировать папки, связанные с IDE и редакторами
+.vscode
+.idea
+*.sublime-workspace
+*.sublime-project
+
+# Игнорировать файлы конфигураций и кэша
+*.env
+*.env.local
+*.local
+*.tmp
+
+# Игнорировать прочие ненужные файлы
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+README.md
