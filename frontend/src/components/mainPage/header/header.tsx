@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import style from "./header.module.scss";
 
 type HeaderType = {
@@ -15,6 +16,9 @@ function Header({ title }: HeaderType) {
                 {title}
               </h1>
             </a>
+          </li>
+          <li>
+            <NavLink to={"/profile"}>Профиль</NavLink>
           </li>
         </ul>
       </nav>

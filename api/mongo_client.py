@@ -16,7 +16,6 @@ mongo_client = MongoClient(
     port=MONGO_PORT,
     )
 
-
 def insert_test_document():
     """Inserts sample document to the test_collection is the test db"""
     db = mongo_client.test

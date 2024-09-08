@@ -1,8 +1,9 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import style from "./main.module.scss";
 import Search from "./search/search";
 import Welcome from "./welcome/welcome";
 import ImageCard from "./imagesCard/imagesCard";
+import axios from "axios";
 
 type ImageType = {
   id: number;
@@ -12,31 +13,28 @@ type ImageType = {
   urls: {
     small: string;
   };
+  saved?: boolean;
 };
 
 const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5050";
-console.log(API_URL);
 
 function Main() {
   const [word, setWord] = useState<string>("");
   const [wordRandom, setRandomWord] = useState<string>("");
   const [images, setImages] = useState<ImageType[]>([]);
 
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSearchSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch(`${API_URL}/new-image?query=${wordRandom}`)
-      .then((res) => res.json())
-      .then((data: ImageType) => {
-        setImages([{ ...data, title: wordRandom }, ...images]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
+    try {
+      const res = await axios.get(`${API_URL}/new-image?query=${word}`);
+      setImages([{ ...res.data, title: wordRandom }, ...images]);
+    } catch (error) {
+      console.log(error);
+    }
     setRandomWord("");
   };
 
-  const handleSearchAllImagesSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSearchAllImagesSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch(`${API_URL}/search/photos?query=${word}`)
       .then((res) => res.json())
@@ -48,12 +46,29 @@ function Main() {
       .catch((err) => {
         console.log(err);
       });
-
     setWord("");
   };
 
-  const handleDeleteImage = (id: number) => {
-    setImages(images.filter((image) => image.id !== id));
+  const handleSaveImage = async (id: number) => {
+    const imageToBeSaved: ImageType | undefined = images.find(
+      (image) => image.id === id
+    );
+    if (!imageToBeSaved) {
+      return;
+    }
+    imageToBeSaved.saved = true;
+    try {
+      const res = await axios.post(`${API_URL}/images`, imageToBeSaved);
+      if (res.data?.inserted_id) {
+        setImages((prevImages) =>
+          prevImages.map((image) =>
+            image.id === id ? { ...image, saved: true } : image
+          )
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -82,7 +97,7 @@ function Main() {
                   key={index}
                   className={style["main_ImagesContainer-image"]}
                 >
-                  <ImageCard image={image} deleteImage={handleDeleteImage} />
+                  <ImageCard image={image} saveImage={handleSaveImage} />
                 </div>
               ))}
             </div>

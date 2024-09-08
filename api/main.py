@@ -40,7 +40,18 @@ def images():
         inserted_id = result.inserted_id
         return {"inserted_id": inserted_id}
 
-# connect with frontend
+@app.route("/images/<image_id>", methods=["DELETE"])
+def delete_images(image_id):
+    if request.method == "DELETE":
+        # delete image from database
+        result = images_collection.delete_one({"_id": image_id})
+        if not result: 
+            return {"error": "Image wasn't deleted. Please try again"}, 500 
+        if result and not result.deleted_count:
+            return {"error": "Image not found"}, 404
+        return {"deleted_id": image_id}
+    
+# get random image
 @app.route("/new-image")
 def new_image():
     word = request.args.get("query")
@@ -51,7 +62,7 @@ def new_image():
     data = response.json()
     return jsonify(data)
 
-
+# get all photos
 @app.route("/search/photos")
 def get_all_photo():
     word = request.args.get("query")
