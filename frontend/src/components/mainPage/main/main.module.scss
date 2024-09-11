@@ -1,10 +1,10 @@
-@import "../../../assets/scss/scss.constants.scss";
+@import "../../../styles/variables/scss.constants.scss";
 
 .main {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background-color: $altBg;
+  background-color: $mainLightBg;
 
   &_block {
     display: flex;
@@ -20,8 +20,22 @@
 
     &-search {
       display: flex;
+      justify-content: center;
+      gap: 16px;
       width: 100%;
-      background-color: red;
+      height: 100%;
+      background-color: $mainDarkBg75;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 4px;
+        background: rgb(25, 25, 25);
+        width: 100%;
+      }
     }
   }
 

@@ -3,37 +3,22 @@ import style from "./header.module.scss";
 
 type HeaderType = {
   title: string;
-  profile: string;
+  link: string;
 };
 
-function Header({ title, profile }: HeaderType) {
+function Header({ title, link }: HeaderType) {
   return (
     <header className={style["header"]}>
       <div className={style["header_container"]}>
-        <NavLink className={style["header_titleLink"]} to="/">
+        <NavLink className={style["header_titleLink"]} to="/profile">
           <h1 className={style["header_titleLink-title"]}>{title}</h1>
         </NavLink>
         <nav className={style["header_nav"]}>
           <ul className={style["header_nav-ul"]}>
             <li className={style["header_nav-ul-list"]}>
               <div className={style["header_nav-ul-list_linkContainer"]}>
-                <NavLink
-                  className={style["header_nav-ul-list_link"]}
-                  to={"/profile"}
-                >
-                  {profile}
-                </NavLink>
-                <NavLink
-                  className={style["header_nav-ul-list_link"]}
-                  to={"/profile"}
-                >
-                  {profile}
-                </NavLink>
-                <NavLink
-                  className={style["header_nav-ul-list_link"]}
-                  to={"/profile"}
-                >
-                  {profile}
+                <NavLink className={style["header_nav-ul-list_link"]} to={"/"}>
+                  {link}
                 </NavLink>
               </div>
             </li>

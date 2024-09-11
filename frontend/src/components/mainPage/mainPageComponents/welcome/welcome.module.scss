@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/scss.constants.scss";
+@import "../../../../styles/variables/scss.constants.scss";
 
 .welcome {
   display: flex;
@@ -8,6 +8,6 @@
   gap: 16px;
   padding: 16px;
   min-height: 10vh;
-  color: $mainColor;
-  background: $mainBg25;
+  color: $mainWhiteColor;
+  background: $mainDarkBg25;
 }

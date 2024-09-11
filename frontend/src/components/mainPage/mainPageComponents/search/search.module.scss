@@ -1,0 +1,42 @@
+@import "../../../../styles/variables/scss.constants.scss";
+
+.search {
+  width: 100%;
+  &_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px;
+    min-height: 8vh;
+
+    &_form {
+      min-height: 4vh;
+
+      &-content {
+        display: flex;
+        gap: 16px;
+        &-input {
+          min-width: 35vw;
+          min-height: 3vh;
+          border: none;
+          border-radius: 999px;
+          padding: 6px;
+
+          &:focus {
+            outline: none;
+            box-shadow: 0px 0px 6px 4px $deepBlue;
+            border: none;
+          }
+        }
+
+        &-submit {
+          border-radius: 999px;
+          font-size: $fontCardTextNormal;
+          background: $mainLightBg;
+          cursor: pointer;
+          border: none;
+        }
+      }
+    }
+  }
+}

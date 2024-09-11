@@ -1,9 +1,10 @@
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import style from "./main.module.scss";
-import Search from "./search/search";
-import Welcome from "./welcome/welcome";
-import ImageCard from "./imagesCard/imagesCard";
+import Search from "../mainPageComponents/search/search";
+import Welcome from "../mainPageComponents/welcome/welcome";
+import ImageCard from "../mainPageComponents/imagesCard/imagesCard";
 import axios from "axios";
+import { API_URL } from "../../../utils/constants";
 
 type ImageType = {
   id: number;
@@ -15,8 +16,6 @@ type ImageType = {
   };
   saved?: boolean;
 };
-
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5050";
 
 function Main() {
   const [word, setWord] = useState<string>("");
@@ -79,12 +78,14 @@ function Main() {
           <Search
             word={word}
             placeholder="Search images"
+            search="search"
             setWord={setWord}
             handleSubmit={handleSearchAllImagesSubmit}
           />
           <Search
             word={wordRandom}
             placeholder="Search random image"
+            search="random"
             setWord={setRandomWord}
             handleSubmit={handleSearchSubmit}
           />

@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ImageCard from "../mainPage/main/imagesCard/imagesCard";
-import { NavLink } from "react-router-dom";
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5050";
+import ImageCard from "./profilePagesComponents/imagesCard/imagesCard";
+import { API_URL } from "../../utils/constants";
+import style from "./profile.module.scss";
+import Header from "./header/header";
 
 type ImageType = {
   id: number;
@@ -42,29 +43,24 @@ function Profile() {
   };
 
   return (
-    <div>
-      <h1>Сохраненные изображения </h1>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to={"/"}>Вернуться на главную</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div>
-        {images.length ? (
-          <div>
-            {images.map((image, index) => (
-              <div key={index}>
-                <ImageCard image={image} deleteImage={handleDeleteImage} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div>Yours Gallery</div>
-        )}
+    <>
+      <Header title={"Image Gallery"} link={"Main page"} />
+      <div className={style["profile"]}>
+        <div className={style["profile_containers"]}>
+          {images.length ? (
+            <div className={style["profile_containers-block"]}>
+              {images.map((image, index) => (
+                <div key={index}>
+                  <ImageCard image={image} deleteImage={handleDeleteImage} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>On this page your saved images will be stored</div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

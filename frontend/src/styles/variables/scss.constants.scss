@@ -1,0 +1,42 @@
+/* background color */
+$mainDarkBg: rgb(0, 0, 0);
+$mainDarkBg25: rgba(0 0 0 / 0.25);
+$mainDarkBg50: rgba(0 0 0 / 0.5);
+$mainDarkBg75: rgba(0 0 0 / 0.75);
+$mainLightBg: rgb(255, 255, 255);
+$mainLightBg25: rgba(255 255 255 / 0.25);
+$mainLightBg50: rgba(255 255 255 / 0.5);
+$mainLightBg75: rgba(255 255 255 / 0.75);
+
+/* color */
+$mainWhiteColor: rgb(255, 255, 255);
+$mainWhiteColor25: rgba(255 255 255 / 0.25);
+$mainWhiteColor50: rgba(255 255 255 / 0.5);
+$mainWhiteColor75: rgba(255 255 255 / 0.75);
+
+/* deep purple and blue shades */
+$deepPurple: #4a148c; // Deep Purple
+$deepPurple25: rgba(74, 20, 140, 0.25);
+$deepPurple50: rgba(74, 20, 140, 0.5);
+$deepPurple75: rgba(74, 20, 140, 0.75);
+
+$deepBlue: #003366; // Deep Blue
+$deepBlue25: rgba(0, 51, 102, 0.25);
+$deepBlue50: rgba(0, 51, 102, 0.5);
+$deepBlue75: rgba(0, 51, 102, 0.75);
+
+/* font size */
+// main title
+$fontMainTitleBig: 48px;
+$fontMainTitleNormal: 40px;
+$fontMainTitleSmall: 32px;
+// title
+$fontCardTitleBig: 24px;
+$fontCardTitleNormal: 18px;
+$fontCardTitleSmall: 16px;
+// text
+$fontCardTextBig: 18px;
+$fontCardTextNormal: 16px;
+$fontCardTextSmall: 14px;
+
+/* line height */

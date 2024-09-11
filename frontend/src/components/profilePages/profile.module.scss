@@ -1,0 +1,15 @@
+.profile {
+  display: flex;
+  &_containers {
+    display: flex;
+    &-block {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+}

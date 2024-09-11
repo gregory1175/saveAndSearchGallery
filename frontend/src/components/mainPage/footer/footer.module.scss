@@ -1,0 +1,29 @@
+@import "../../../styles/variables/scss.constants.scss";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $deepPurple25;
+
+  &_container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    margin: 16px;
+    &-title {
+      font-size: $fontCardTitleSmall;
+      font-weight: 400;
+    }
+
+    &-text {
+      font-size: $fontCardTextNormal;
+      font-weight: 400;
+    }
+
+    &-image {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

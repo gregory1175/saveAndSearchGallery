@@ -5,7 +5,7 @@ import Main from "./main/main";
 function MainPage() {
   return (
     <>
-      <Header title={"Image Gallery"} />
+      <Header title={"Image Gallery"} profile={"My profile"} />
       <Main></Main>
       <Footer />
     </>
