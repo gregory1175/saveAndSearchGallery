@@ -1,10 +1,12 @@
 @import "../../../styles/variables/scss.constants.scss";
+@import "../../../styles/anim/anim.scss";
 
 .header {
   display: flex;
   align-items: center;
-  min-height: 6vh;
-  background-color: $deepPurple;
+  width: 100%;
+  min-height: 15vh;
+  background: rgba(0 0 0);
 
   &_container {
     display: flex;
@@ -19,15 +21,28 @@
     text-decoration: none;
 
     &-title {
-      color: $mainWhiteColor;
-      font-size: $fontMainTitleNormal;
-      line-height: 40px;
+      position: relative;
+      font-size: 72px;
+      color: rgb(170, 170, 170);
+      line-height: 84px;
+      animation: fall 1.5s ease-in-out forwards;
+
+      &::before {
+        content: "gr1175";
+        font-style: italic;
+        font-size: 36px;
+        position: absolute;
+        top: -25px;
+        left: 30px;
+        color: rgba(255, 0, 0, 0.3);
+      }
     }
   }
 
   &_nav {
     display: flex;
     margin: 16px;
+
     &-ul {
       &-list {
         &_linkContainer {
@@ -38,9 +53,38 @@
           font-size: $fontCardTitleBig;
           font-weight: 400;
           text-decoration: none;
-          color: $mainWhiteColor;
+          color: rgb(170, 170, 170);
         }
       }
     }
+  }
+}
+
+.openButton_container {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+  z-index: 9999;
+
+  &-div {
+    position: relative;
+    width: 15vw;
+  }
+}
+.openButton {
+  background-color: white;
+  border-radius: 999px;
+  width: 5vw;
+  height: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.header_nav-ul-list_linkContainer {
+  animation: fall 1.2s ease-in-out forwards;
+
+  &.reverse-animation {
+    animation: fall-reverse 1.2s ease-in-out forwards;
   }
 }

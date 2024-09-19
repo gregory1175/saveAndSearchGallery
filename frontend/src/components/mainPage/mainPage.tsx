@@ -5,9 +5,15 @@ import Main from "./main/main";
 function MainPage() {
   return (
     <>
-      <Header title={"Image Gallery"} profile={"My profile"} />
-      <Main></Main>
-      <Footer />
+      <section>
+        <Header title={"Image Gallery"} profile={"My profile"} />
+      </section>
+      <section>
+        <Main />
+      </section>
+      <section>
+        <Footer />
+      </section>
     </>
   );
 }
