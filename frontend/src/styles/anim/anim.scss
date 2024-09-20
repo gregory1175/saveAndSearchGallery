@@ -19,3 +19,63 @@
     opacity: 0;
   }
 }
+
+@keyframes fall-left-to-right {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fallNavigate {
+  0% {
+    border-bottom-left-radius: 0px;
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  20% {
+    border-bottom-left-radius: 0px;
+    opacity: 0.5;
+  }
+  50% {
+    border-bottom-left-radius: 297px;
+    opacity: 0.75;
+  }
+  75% {
+    border-bottom-left-radius: 498px;
+  }
+  100% {
+    border-bottom-left-radius: 999px;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fallNavigate-reverse {
+  0% {
+    border-bottom-left-radius: 999px;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  20% {
+    border-bottom-left-radius: 498px;
+    opacity: 0.75;
+  }
+  50% {
+    border-bottom-left-radius: 0px;
+    opacity: 0.5;
+  }
+  80% {
+    border-bottom-left-radius: 0px;
+    opacity: 0.25;
+  }
+  100% {
+    border-bottom-left-radius: 0px;
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+}

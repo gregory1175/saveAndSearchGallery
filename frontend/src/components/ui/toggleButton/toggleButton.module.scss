@@ -1,0 +1,46 @@
+.toggle-btn {
+  border-radius: 999px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.line {
+  stroke: black;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: all 0.3s ease-in-out;
+}
+
+.line1 {
+  transform-origin: 50% 50%;
+}
+
+.line2 {
+  opacity: 1;
+}
+
+.line3 {
+  transform-origin: 50% 50%;
+}
+
+.toggle-btn.open .line1 {
+  transform: rotate(45deg) translate(1px, 5px);
+}
+
+.toggle-btn.open .line2 {
+  opacity: 0;
+}
+
+.toggle-btn.open .line3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

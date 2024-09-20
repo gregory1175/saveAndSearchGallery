@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import style from "./main.module.scss";
 import Search from "../mainPageComponents/search/search";
 import Welcome from "../mainPageComponents/welcome/welcome";

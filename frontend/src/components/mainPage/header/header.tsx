@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import style from "./header.module.scss";
 import { useRef, useState } from "react";
+import ToggleButton from "../../ui/toggleButton/toggleButton";
 
 type HeaderType = {
   title: string;
@@ -18,7 +19,6 @@ function Header({ title, profile }: HeaderType) {
     if (activeNavigate) {
       setIsAnimating(true);
       linkContainerRef.current?.classList.add(style["reverse-animation"]);
-
       setTimeout(() => {
         setActiveNavigate(false);
         setIsAnimating(false);
@@ -31,35 +31,44 @@ function Header({ title, profile }: HeaderType) {
   return (
     <header className={style["header"]}>
       <div className={style["header_container"]}>
-        <NavLink className={style["header_titleLink"]} to="/">
-          <h1 className={style["header_titleLink-title"]}>{title}</h1>
-        </NavLink>
+        <div className={style["header_containerTitle"]}>
+          <NavLink className={style["header_titleLink"]} to="/">
+            <h1 className={style["header_titleLink-title"]}>{title}</h1>
+          </NavLink>
+        </div>
+        <hr className={style["header_line"]} />
+        <div className={style["header_containerText"]}>
+          <h2 className={style["header_containerText-title"]}>Welcome!</h2>
+          <p className={style["header_containerText-text"]}>
+            Image Gallery is a small project of mine
+          </p>
+          <p className={style["header_containerText-text"]}>
+            The functionality is very simple
+            <br /> 1 Search for images
+            <br /> 2 Save images to your gallery
+          </p>
+        </div>
         <nav className={style["header_nav"]}>
           <ul className={style["header_nav-ul"]}>
             <li className={style["header_nav-ul-list"]}>
-              <div className={style["openButton_container"]}>
-                <div className={style["openButton_container-div"]}>
-                  <button
-                    className={style["openButton"]}
-                    onClick={toggleNavigate}
-                  ></button>
-                </div>
-                {activeNavigate && (
-                  <div
-                    className={`${style["header_nav-ul-list_linkContainer"]} ${
-                      isAnimating ? style["reverse-animation"] : ""
-                    }`}
-                    ref={linkContainerRef}
-                  >
-                    <NavLink
-                      className={style["header_nav-ul-list_link"]}
-                      to={"/profile"}
-                    >
-                      {profile}
-                    </NavLink>
-                  </div>
-                )}
+              <div className={style["openButton"]}>
+                <ToggleButton click={toggleNavigate} disabled={isAnimating} />
               </div>
+              {activeNavigate && (
+                <div
+                  className={`${style["header_nav-ul-list_linkContainer"]} ${
+                    isAnimating ? style["reverse-animation"] : ""
+                  }`}
+                  ref={linkContainerRef}
+                >
+                  <NavLink
+                    className={style["header_nav-ul-list_link"]}
+                    to={"/profile"}
+                  >
+                    {profile}
+                  </NavLink>
+                </div>
+              )}
             </li>
           </ul>
         </nav>
