@@ -1,11 +1,12 @@
 @import "../../../../styles/variables/scss.constants.scss";
-
+@import "../../../../styles/anim/anim.scss";
 .search {
   height: 100%;
   margin: 16px;
   &_block {
     display: flex;
-
+    flex-direction: column;
+    position: relative;
     &_form {
       min-height: 4vh;
       background: white;
@@ -41,4 +42,11 @@
       }
     }
   }
+}
+
+.mistake {
+  position: absolute;
+  top: -24px;
+  color: red;
+  background-color: black;
 }

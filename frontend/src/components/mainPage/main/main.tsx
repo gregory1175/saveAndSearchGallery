@@ -21,6 +21,7 @@ function Main() {
   const [word, setWord] = useState<string>("");
   const [wordRandom, setRandomWord] = useState<string>("");
   const [images, setImages] = useState<ImageType[]>([]);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   const handleSearchSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +36,11 @@ function Main() {
 
   const handleSearchAllImagesSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!word.trim()) {
+      setError("Search field cannot be empty");
+      return;
+    }
+    setError(undefined);
     fetch(`${API_URL}/search/photos?query=${word}`)
       .then((res) => res.json())
       .then((data) => {
@@ -45,6 +51,7 @@ function Main() {
       .catch((err) => {
         console.log(err);
       });
+
     setWord("");
   };
 
@@ -81,6 +88,7 @@ function Main() {
             search="search"
             setWord={setWord}
             handleSubmit={handleSearchAllImagesSubmit}
+            mistake={error}
           />
           <Search
             word={wordRandom}

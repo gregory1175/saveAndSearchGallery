@@ -7,6 +7,7 @@ type SearchType = {
   search: string;
   setWord: (value: string) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  mistake?: string;
 };
 
 function Search({
@@ -15,6 +16,7 @@ function Search({
   search,
   setWord,
   handleSubmit,
+  mistake,
 }: SearchType) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setWord(e.target.value);
@@ -32,6 +34,7 @@ function Search({
               placeholder={placeholder}
               className={style["search_block_form-content-input"]}
             />
+
             <button
               type="submit"
               className={style["search_block_form-content-submit"]}
@@ -40,6 +43,7 @@ function Search({
             </button>
           </div>
         </form>
+        <p className={style["mistake"]}>{mistake}</p>
       </div>
     </div>
   );
